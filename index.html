@@ -2,6 +2,14 @@
 <html>
 <head>
 	<title>Spotify Visualization</title>
+</head>
+<body>
+ <div class="container">
+   <div class="login-container hidden" id="js-login-container">
+     <button class="btn btn--login" id="js-btn-login">Login with Spotify</button>
+   </div>
+   <div class="main-container hidden" id="js-main-container"></div>
+</div>
 	<script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
   	<script type="text/javascript" src="https://spotify-player.herokuapp.com/spotify-player.js"> </script>
 	<style type="text/css">
@@ -192,13 +200,5 @@ loginButton.addEventListener('click', () => {
 spotifyPlayer.init();
 
 	</script>
-</head>
-<body>
- <div class="container">
-   <div class="login-container hidden" id="js-login-container">
-     <button class="btn btn--login" id="js-btn-login">Login with Spotify</button>
-   </div>
-   <div class="main-container hidden" id="js-main-container"></div>
-</div>
 </body>
 </html>
