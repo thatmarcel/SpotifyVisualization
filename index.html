@@ -14,11 +14,8 @@
   	<script type="text/javascript" src="https://spotify-player.herokuapp.com/spotify-player.js"> </script>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
-
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro:900');
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -27,7 +24,6 @@
   font-family: 'Montserrat', sans-serif;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
 html, body {
   height: 100%;
 }
@@ -37,11 +33,9 @@ body {
   font-family: Helvetica, Arial;
   font-size: 3vmin;
 }
-
 .hidden {
   display: none;
 }
-
 /** Buttons **/
 .btn {
   background-color: transparent;
@@ -54,38 +48,31 @@ body {
   text-transform: uppercase;
   transition: all 0.25s ease;
 }
-
 .btn:hover {
   background: #1ecd97;
   color: #333;
 }
-
 .btn--login {
   margin: 0 auto;
 }
-
 /** Now Playing **/
 .now-playing__name {
   font-family: 'Maven Pro', sans-serif;
   font-size: 2em;
   margin-bottom: 0.4em;
 }
-
 .now-playing__artist {
   margin-bottom: 1em;
 }
-
 .now-playing__status {
   margin-bottom: 1em;
 }
-
 .now-playing__img {
   float: left;
   margin-right: 10px;
   text-align: right;
   width: 45%;
 }
-
 .now-playing__img img {
   max-width: 80vmin;
   width: 100%;
@@ -94,29 +81,24 @@ body {
   -moz-box-shadow:    7px 7px 30px 0px rgba(50, 50, 50, 0.75);
   box-shadow:         7px 7px 30px 0px rgba(50, 50, 50, 0.75);
 }
-
 .now-playing__side {
   margin-left: 5%;
   width: 45%;
 }
-
 /** Progress **/
 .progress {
   border: 0.15em solid #eee;
   height: 1em;
   border-radius: 0.4em;
 }
-
-  .progress__bar {
-   background: #B993D6;  /* fallback for old browsers */
-   background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
-   background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
- 
-   border: 0.1em solid transparent;
-   height: 0.75em;
--  border-radius: 0.25em;
- }
-
+.progress__bar {
+  background: #B993D6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: 0.1em solid transparent;
+  height: 0.75em;
+  border-radius: 0.25em;
+}
 /** Background **/
 .background {
   left: 0;
@@ -128,7 +110,6 @@ body {
   filter: blur(0.25em) opacity(1);
   position: absolute;
 }
-
 .main-wrapper {
   align-items: center;
   display: flex;
@@ -139,14 +120,12 @@ body {
   width: 80%;
   z-index: 1;
 }
-
 .container {
   align-items: center;
   display: flex;
   justify-content: center;
   height: 100%;
 }
-
 .main-container {
   flex: 1;
 }
@@ -156,9 +135,7 @@ body {
     loginContainer = document.getElementById('js-login-container'),
     loginButton = document.getElementById('js-btn-login'),
     background = document.getElementById('js-background');
-
 var spotifyPlayer = new SpotifyPlayer();
-
 var template = function (data) {
   return `
     <div class="main-wrapper">
@@ -177,12 +154,10 @@ var template = function (data) {
     <div class="background" style="background-image:url(${data.item.album.images[0].url})"></div>
   `;
 };
-
 spotifyPlayer.on('update', response => {
   mainContainer.innerHTML = template(response);
   document.title = response.item.name;
 });
-
 spotifyPlayer.on('login', user => {
   if (user === null) {
     loginContainer.style.display = 'block';
@@ -192,13 +167,10 @@ spotifyPlayer.on('login', user => {
     mainContainer.style.display = 'block';
   }
 });
-
 loginButton.addEventListener('click', () => {
     spotifyPlayer.login();
 });
-
 spotifyPlayer.init();
-
 	</script>
 </body>
 </html>
