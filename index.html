@@ -188,6 +188,10 @@ loginButton.addEventListener('click', () => {
     spotifyPlayer.login();
 });
 spotifyPlayer.init();
+var elem = document.getElementById("main-wrapper");
+if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+}
 	</script>
 </body>
 </html>
