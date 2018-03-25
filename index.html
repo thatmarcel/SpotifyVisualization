@@ -137,6 +137,22 @@ background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, F
     loginButton = document.getElementById('js-btn-login'),
     background = document.getElementById('js-background');
 var spotifyPlayer = new SpotifyPlayer();
+var getPlaying = function () {
+	var userLang = navigator.language || navigator.userLanguage; 
+	if (userLang === "de") {
+    		return "Spielt gerade";
+	} else {
+    		return "Playing";
+	}
+}
+var getPaused = function () {
+	var userLang = navigator.language || navigator.userLanguage; 
+	if (userLang === "de") {
+    		return "Pausiert";
+	} else {
+    		return "Paused";
+	}
+}
 var template = function (data) {
   return `
     <div class="main-wrapper">
@@ -146,7 +162,7 @@ var template = function (data) {
       <div class="now-playing__side">
         <div class="now-playing__name">${data.item.name}</div>
         <div class="now-playing__artist">${data.item.artists[0].name}</div>
-        <div class="now-playing__status">${data.is_playing ? 'Spielt gerade' : 'Pausiert'}</div>
+        <div class="now-playing__status">${data.is_playing ? getPlaying() : getPaused()}</div>
         <div class="progress">
           <div class="progress__bar" style="width:${data.progress_ms * 100 / data.item.duration_ms}%"></div>
         </div>
