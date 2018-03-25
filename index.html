@@ -139,7 +139,7 @@ background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, F
 var spotifyPlayer = new SpotifyPlayer();
 var getPlaying = function () {
 	var userLang = navigator.language || navigator.userLanguage; 
-	if (userLang === "de") {
+	if (userLang.includes("de")) {
     		return "Spielt gerade";
 	} else {
     		return "Playing";
@@ -147,7 +147,7 @@ var getPlaying = function () {
 }
 var getPaused = function () {
 	var userLang = navigator.language || navigator.userLanguage; 
-	if (userLang === "de") {
+	if (userLang.includes("de")) {
     		return "Pausiert";
 	} else {
     		return "Paused";
